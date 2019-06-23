@@ -1,0 +1,18 @@
+Worker - Goroutine that executes tasks
+    - model
+    - execute task, put output into queue (interface)
+
+Scheduler - Creates worker routines, tracks worker schedules and tasks cleared
+    - model 
+    - create workers for each task in task queue (pool ?)
+    - check for uncleared tasks with visibility timer
+    - checks if tasks taking too long or stuck (# of trials on a task and notification if task keeps failing repeatedly)
+
+TaskGenerator (cron job)- generates tasks from events
+    - model 
+    - checks events - creates tasks and puts into task queue
+    
+Server 
+    - mux 
+    - interacts with UI
+    - JWT token verification

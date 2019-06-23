@@ -10,7 +10,7 @@ type TaskGenerator struct {
 	//TODO: attach logger
 }
 
-//GenerateTasks generate events
+//GenerateTasks generate tasks
 func (e *EventGenerator) GenerateTasks(event *model.Event) error {
 	//Create events based on request
 	if event == nil {
@@ -76,11 +76,9 @@ func (e *EventGenerator) createOneOffTask(event *model.Event) error {
 }
 
 /*
--- cron job: create a scheduled job that runs once every day
-
+-- 
+cron job: create a scheduled job that runs once every day
 an event is created for every cron job
-
 scheduler picks up events and creates tasks
-
 tasks get picked by workers
 */

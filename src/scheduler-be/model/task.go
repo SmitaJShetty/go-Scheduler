@@ -10,7 +10,7 @@ import (
 //Task construct fr tasks
 type Task struct {
 	gorm.Model
-	ID        string    `json:"id" gorm:"primary_key"`
+	ID        uuid.UUID `json:"id" gorm:"primary_key"`
 	Name      string    `json:"name"`
 	EventID   string    `json:"event_id"`
 	CreatedAt time.Time `json:"created_at"`
@@ -31,21 +31,3 @@ func NewTask(name string, eventID string) *Task {
 		ID:      uuid.NewRandom(),
 	}
 }
-
-/*
-
-task generator -- creates tasks from events
-
-talk to db
-plug in kafka -- put tasks from events
-deploy on aws
-get pipelines done
-GET UI DONE
-
-workers -- another service, picks up tasks, works
-THings to get done by Monday evening:
-
-
-
-
-*/
