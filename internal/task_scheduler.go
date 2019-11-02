@@ -1,4 +1,4 @@
-package taskscheduler
+package internal
 
 // TaskScheduler construct for task scheduler
 type TaskScheduler struct {
@@ -10,4 +10,3 @@ func (a *TaskScheduler) ScheduleTask() {
 
 	//pick up events and create tasks
 }
-

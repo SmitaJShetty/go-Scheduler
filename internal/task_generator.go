@@ -1,24 +1,16 @@
-package task_generator
+package internal
 
-import (
-	"fmt"
-	"scheduler/go-Scheduler/src/scheduler-be/model"
-)
 
 //EventGenerator tupe for event generator
 type TaskGenerator struct {
 	//TODO: attach logger
 }
 
-//GenerateTasks generate tasks
-func (e *EventGenerator) GenerateTasks(event *model.Event) error {
+//CreateTasks generate tasks
+func (eg *EventGenerator) CreateTasks(event *model.Event) error {
 	//Create events based on request
 	if event == nil {
 		return fmt.Errorf("events are empty")
-	}
-
-	if event.Status == model.Active {
-		return fmt.Errorf("event is active")
 	}
 
 	switch event.Type {
@@ -42,12 +34,11 @@ func (e *EventGenerator) GenerateTasks(event *model.Event) error {
 		return fmt.Errorf("invalid job type")
 
 	}
-
 	return nil
 }
 
 //createCronTask - creates tasks based on event schedule
-func (e *EventGenerator) createCronTask(event *model.Event) error {
+func (eg *EventGenerator) createCronTask(event *model.Event) error {
 	if event == nil {
 		return fmt.Errorf("event empty")
 	} 
@@ -58,7 +49,7 @@ func (e *EventGenerator) createCronTask(event *model.Event) error {
 }
 
 //createRepetitiveTask - creates tasks based on event schedule
-func (e *EventGenerator) createRepetitiveTask(event *model.Event) error {
+func (eg *EventGenerator) createRepetitiveTask(event *model.Event) error {
 	if event == nil {
 		return fmt.Errorf("event empty")
 	}
@@ -67,7 +58,7 @@ func (e *EventGenerator) createRepetitiveTask(event *model.Event) error {
 }
 
 //createOneOffTask - creates tasks based on event schedule
-func (e *EventGenerator) createOneOffTask(event *model.Event) error {
+func (eg *EventGenerator) createOneOffTask(event *model.Event) error {
 	if event == nil {
 		return fmt.Errorf("event empty")
 	}
