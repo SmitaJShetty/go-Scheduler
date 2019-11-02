@@ -16,3 +16,4 @@ func (e *EventGenerator) GenerateEvents(event *model.Event) error {
 	eventRepo:= NewEventRepo()
 	eventRepo.
 }
+.loop
