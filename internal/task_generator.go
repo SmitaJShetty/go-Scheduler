@@ -1,13 +1,22 @@
 package internal
 
+import (
+	"fmt"
+	"scheduler/go-Scheduler/internal/model"
+)
 
-//EventGenerator tupe for event generator
+//NewEventGenerator returns a Taskgenerator
+func NewEventGenerator() *TaskGenerator {
+	return &TaskGenerator{}
+}
+
+//TaskGenerator tupe for event generator
 type TaskGenerator struct {
 	//TODO: attach logger
 }
 
 //CreateTasks generate tasks
-func (eg *EventGenerator) CreateTasks(event *model.Event) error {
+func (eg *TaskGenerator) CreateTasks(event *model.Event) error {
 	//Create events based on request
 	if event == nil {
 		return fmt.Errorf("events are empty")
@@ -32,24 +41,22 @@ func (eg *EventGenerator) CreateTasks(event *model.Event) error {
 		}
 	default:
 		return fmt.Errorf("invalid job type")
-
 	}
 	return nil
 }
 
 //createCronTask - creates tasks based on event schedule
-func (eg *EventGenerator) createCronTask(event *model.Event) error {
+func (eg *TaskGenerator) createCronTask(event *model.Event) error {
 	if event == nil {
 		return fmt.Errorf("event empty")
-	} 
+	}
 
-	taskRepo:= repo.NewTaskRepo()
-	taskRepo.
+	taskRepo := repo.NewTaskRepo()
 	return nil
 }
 
 //createRepetitiveTask - creates tasks based on event schedule
-func (eg *EventGenerator) createRepetitiveTask(event *model.Event) error {
+func (eg *TaskGenerator) createRepetitiveTask(event *model.Event) error {
 	if event == nil {
 		return fmt.Errorf("event empty")
 	}
@@ -58,7 +65,7 @@ func (eg *EventGenerator) createRepetitiveTask(event *model.Event) error {
 }
 
 //createOneOffTask - creates tasks based on event schedule
-func (eg *EventGenerator) createOneOffTask(event *model.Event) error {
+func (eg *TaskGenerator) createOneOffTask(event *model.Event) error {
 	if event == nil {
 		return fmt.Errorf("event empty")
 	}
@@ -66,10 +73,26 @@ func (eg *EventGenerator) createOneOffTask(event *model.Event) error {
 	return nil
 }
 
-/*
--- 
-cron job: create a scheduled job that runs once every day
-an event is created for every cron job
-scheduler picks up events and creates tasks
-tasks get picked by workers
-*/
+//StartTaskGenerator start task generator routine
+func StartTaskGenerator() error {
+	eventGen := NewEventGenerator()
+	go func() {
+		eventGen.CreateAllTasks()
+	}()
+
+	return nil
+}
+
+// CreateAllTasks creates all tasks
+func (eg *TaskGenerator) CreateAllTasks() {
+	//fetch all types of= tasks
+	eventRepo := repo.NewEventRepo()
+
+	var eventList []model.Event
+	eventList = eventRepo.GetAllEvents()
+
+	//run through create task function
+	for i, ev := range eventList {
+
+	}
+}

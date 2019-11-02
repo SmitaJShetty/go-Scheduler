@@ -3,7 +3,7 @@ package model
 import (
 	"time"
 
-	"github.com/google/uuid"
+	"github.com/pborman/uuid"
 
 	"github.com/jinzhu/gorm"
 )
@@ -33,7 +33,7 @@ const (
 //Event construct event
 type Event struct {
 	gorm.Model
-	ID        uuid.UUID   `json:"id" gorm:"primary_key"`
+	ID        string      `json:"id" gorm:"primary_key"`
 	Name      string      `json:"name"`
 	Type      EventType   `json:"type"`
 	Status    EventStatus `json:"status"`

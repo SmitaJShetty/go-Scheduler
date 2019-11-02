@@ -2,7 +2,6 @@ package internal
 
 //Scheduler schedules
 type Scheduler struct {
-	eventtasker
 }
 
 //ScheduleTasks set up task execution times
