@@ -11,15 +11,15 @@ const dbName string = ""
 const connString string = ""
 
 //NewEventRepo starts a new event repo
-func NewEventRepo() *EventRepo {
+func NewEventRepo() (*EventRepo, error) {
 	newDB, dbErr := gorm.Open(dbName, connString)
 	if dbErr != nil {
-		return dbErr
+		return nil, dbErr
 	}
 
 	return &EventRepo{
 		db: newDB,
-	}
+	}, nil
 }
 
 //EventRepo construct for eventrepo
