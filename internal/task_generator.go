@@ -1,24 +1,25 @@
-package task_generator
+package internal
 
 import (
 	"fmt"
-	"scheduler/go-Scheduler/src/scheduler-be/model"
+	"scheduler/go-Scheduler/internal/model"
 )
 
-//EventGenerator tupe for event generator
+//NewEventGenerator returns a Taskgenerator
+func NewEventGenerator() *TaskGenerator {
+	return &TaskGenerator{}
+}
+
+//TaskGenerator tupe for event generator
 type TaskGenerator struct {
 	//TODO: attach logger
 }
 
-//GenerateTasks generate tasks
-func (e *EventGenerator) GenerateTasks(event *model.Event) error {
+//CreateTasks generate tasks
+func (eg *TaskGenerator) CreateTasks(event *model.Event) error {
 	//Create events based on request
 	if event == nil {
 		return fmt.Errorf("events are empty")
-	}
-
-	if event.Status == model.Active {
-		return fmt.Errorf("event is active")
 	}
 
 	switch event.Type {
@@ -40,25 +41,22 @@ func (e *EventGenerator) GenerateTasks(event *model.Event) error {
 		}
 	default:
 		return fmt.Errorf("invalid job type")
-
 	}
-
 	return nil
 }
 
 //createCronTask - creates tasks based on event schedule
-func (e *EventGenerator) createCronTask(event *model.Event) error {
+func (eg *TaskGenerator) createCronTask(event *model.Event) error {
 	if event == nil {
 		return fmt.Errorf("event empty")
-	} 
+	}
 
-	taskRepo:= repo.NewTaskRepo()
-	taskRepo.
+	taskRepo := repo.NewTaskRepo()
 	return nil
 }
 
 //createRepetitiveTask - creates tasks based on event schedule
-func (e *EventGenerator) createRepetitiveTask(event *model.Event) error {
+func (eg *TaskGenerator) createRepetitiveTask(event *model.Event) error {
 	if event == nil {
 		return fmt.Errorf("event empty")
 	}
@@ -67,7 +65,7 @@ func (e *EventGenerator) createRepetitiveTask(event *model.Event) error {
 }
 
 //createOneOffTask - creates tasks based on event schedule
-func (e *EventGenerator) createOneOffTask(event *model.Event) error {
+func (eg *TaskGenerator) createOneOffTask(event *model.Event) error {
 	if event == nil {
 		return fmt.Errorf("event empty")
 	}
@@ -75,10 +73,26 @@ func (e *EventGenerator) createOneOffTask(event *model.Event) error {
 	return nil
 }
 
-/*
--- 
-cron job: create a scheduled job that runs once every day
-an event is created for every cron job
-scheduler picks up events and creates tasks
-tasks get picked by workers
-*/
+//StartTaskGenerator start task generator routine
+func StartTaskGenerator() error {
+	eventGen := NewEventGenerator()
+	go func() {
+		eventGen.CreateAllTasks()
+	}()
+
+	return nil
+}
+
+// CreateAllTasks creates all tasks
+func (eg *TaskGenerator) CreateAllTasks() {
+	//fetch all types of= tasks
+	eventRepo := repo.NewEventRepo()
+
+	var eventList []model.Event
+	eventList = eventRepo.GetAllEvents()
+
+	//run through create task function
+	for i, ev := range eventList {
+
+	}
+}

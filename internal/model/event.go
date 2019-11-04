@@ -3,6 +3,8 @@ package model
 import (
 	"time"
 
+	"github.com/pborman/uuid"
+
 	"github.com/jinzhu/gorm"
 )
 
@@ -51,3 +53,16 @@ func (e Event) TableName() string {
 	oneoff : x hour, y mins
 	repetitive: every x hour , y mins from first event generation
 */
+
+//NewEvent returns a new event
+func NewEvent(eventReq *EventRequest) *Event {
+	return &Event{
+		ID:        uuid.New(),
+		Name:      eventReq.Name,
+		Type:      eventReq.Type,
+		Status:    eventReq.Status,
+		Details:   eventReq.Details,
+		CreatedAt: eventReq.CreatedAt,
+		UpdatedAt: eventReq.UpdatedAt,
+	}
+}

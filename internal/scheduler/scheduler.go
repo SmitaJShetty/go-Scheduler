@@ -1,8 +1,4 @@
-package scheduler
-
-import (
-	"jwt/src/backend/repo"
-)
+package internal
 
 //Scheduler schedules
 type Scheduler struct {
@@ -15,11 +11,6 @@ func (s *Scheduler) ScheduleTasks() {
 		if events exist unattended, make tasks based on set up times
 	*/
 
-	
-	
-
-	 
-	
 }
 
 func (s *Scheduler) pickEvents() {

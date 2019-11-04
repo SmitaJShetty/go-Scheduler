@@ -10,7 +10,7 @@ import (
 //Task construct fr tasks
 type Task struct {
 	gorm.Model
-	ID        uuid.UUID `json:"id" gorm:"primary_key"`
+	ID        string    `json:"id" gorm:"primary_key"`
 	Name      string    `json:"name"`
 	EventID   string    `json:"event_id"`
 	CreatedAt time.Time `json:"created_at"`
@@ -28,6 +28,6 @@ func NewTask(name string, eventID string) *Task {
 	return &Task{
 		Name:    name,
 		EventID: eventID,
-		ID:      uuid.NewRandom(),
+		ID:      uuid.New(),
 	}
 }
