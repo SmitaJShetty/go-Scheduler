@@ -5,7 +5,6 @@ import (
 	"scheduler/go-Scheduler/internal/model"
 
 	"github.com/jinzhu/gorm"
-	"github.com/pborman/uuid"
 )
 
 //TaskRepo construct for task
@@ -14,13 +13,13 @@ type TaskRepo struct {
 }
 
 //Get gets id string
-func (t *TaskRepo) Get(id *uuid.UUID) (*model.Task, error) {
-	if id == nil {
+func (t *TaskRepo) Get(id string) (*model.Task, error) {
+	if id == "" {
 		return nil, fmt.Errorf("id is empty")
 	}
 
 	var t1 model.Task
-	db := t.db.Where(model.Task{ID: *id}).Find(&t1)
+	db := t.db.Where(model.Task{ID: id}).Find(&t1)
 	if db.Error != nil {
 		return nil, db.Error
 	}
@@ -50,13 +49,13 @@ func (t *TaskRepo) Update(task *model.Task) (*model.Task, error) {
 }
 
 //Delete deletes a task based on id
-func (t *TaskRepo) Delete(id *uuid.UUID) error {
-	if id == nil {
+func (t *TaskRepo) Delete(id string) error {
+	if id == "" {
 		return fmt.Errorf("id is empty")
 	}
 
 	task := &model.Task{
-		ID: *id,
+		ID: id,
 	}
 
 	db := t.db.Delete(task)
