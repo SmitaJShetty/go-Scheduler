@@ -1,6 +1,6 @@
 package taskqueue
 
-import "scheduler/go-Scheduler/src/scheduler-be/model"
+import "goscheduler/go-Scheduler/internal/model"
 
 //TaskQueue queue that contains tasks
 type TaskQueue interface {

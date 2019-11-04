@@ -1,6 +1,6 @@
 package taskqueue
 
-import "scheduler/go-Scheduler/src/scheduler-be/model"
+import "goscheduler/go-Scheduler/internal/model"
 
 //RedisQueue queue to store tasks in redis
 type RedisQueue struct {
