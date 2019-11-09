@@ -2,6 +2,11 @@ package taskqueue
 
 import "scheduler/go-Scheduler/src/scheduler-be/model"
 
+//NewRedisQueue returns a redisqueue
+func NewRedisQueue() *RedisQueue {
+	return &RedisQueue{}
+}
+
 //RedisQueue queue to store tasks in redis
 type RedisQueue struct {
 }
