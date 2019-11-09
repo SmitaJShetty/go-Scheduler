@@ -36,3 +36,4 @@ Attaching to scheduler-postgres
 [36mscheduler-postgres |[0m 2019-11-07T05:00:57.243804000Z 2019-11-07 05:00:57.243 UTC [62] FATAL:  database "smita" does not exist
 [36mscheduler-postgres |[0m 2019-11-07T05:01:25.434064500Z 2019-11-07 05:01:25.433 UTC [71] FATAL:  database "schduler" does not exist
 [36mscheduler-postgres |[0m 2019-11-07T05:01:27.745269700Z 2019-11-07 05:01:27.745 UTC [80] FATAL:  database "sche" does not exist
+[36mscheduler-postgres |[0m 2019-11-09T07:10:48.308361500Z 2019-11-09 07:10:48.306 UTC [27] LOG:  stats_timestamp 2019-11-09 07:10:48.329582+00 is later than collector's time 2019-11-09 07:10:48.306091+00 for database 0

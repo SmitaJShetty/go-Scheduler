@@ -12,6 +12,13 @@ type TaskRepo struct {
 	db *gorm.DB
 }
 
+//NewTaskRepo returns a new task repo
+func NewTaskRepo() *TaskRepo {
+	return &TaskRepo{
+		db: &gorm.DB{},
+	}
+}
+
 //Get gets id string
 func (t *TaskRepo) Get(id string) (*model.Task, error) {
 	if id == "" {

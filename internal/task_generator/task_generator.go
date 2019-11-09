@@ -54,6 +54,13 @@ func (t *TaskGenerator) createCronTask(event *model.Event) error {
 	}
 
 	fmt.Println("task cron task created")
+	//generate task
+	taskRepo := repo.NewTaskRepo()
+	newTask, newTaskErr := taskRepo.Create(model.NewTask{event.Name, event.Type, event.ID})
+	if newTaskErr != nil {
+		return newTaskErr
+	}
+
 	return nil
 }
 

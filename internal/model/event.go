@@ -8,14 +8,18 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-//EventStatus type for event statuses
-type EventStatus string
+//Status type for event statuses
+type Status string
 
 const (
-	//Active event - indicates event has been task generated already
-	Active EventStatus = "active"
-	//Inactive event - indicates event has not be generated as tasks and needs to be worked on
-	Inactive EventStatus = "inactive"
+	//Active represents active status
+	Active Status = "active"
+
+	//Inactive represents inactive status
+	Inactive Status = "inactive"
+
+	//Stopped represents stopped status
+	Stopped Status = "stopped"
 )
 
 //EventType type for event types -- cron job, one-off, repetitive
@@ -33,14 +37,14 @@ const (
 //Event construct event
 type Event struct {
 	gorm.Model
-	ID        string      `json:"id" gorm:"primary_key"`
-	Name      string      `json:"name"`
-	Type      EventType   `json:"type"`
-	Status    EventStatus `json:"status"`
-	Details   []byte      `json:"details"`
-	CreatedAt time.Time   `json:"created_at"`
-	UpdatedAt time.Time   `json:"updated_at"`
-	DeletedAt time.Time   `json:"deleted_at"`
+	ID        string    `json:"id" gorm:"primary_key"`
+	Name      string    `json:"name"`
+	Type      EventType `json:"type"`
+	Status    Status    `json:"status"`
+	Details   []byte    `json:"details"`
+	CreatedAt time.Time `json:"created_at"`
+	UpdatedAt time.Time `json:"updated_at"`
+	DeletedAt time.Time `json:"deleted_at"`
 }
 
 //TableName table name
