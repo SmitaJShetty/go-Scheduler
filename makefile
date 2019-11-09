@@ -2,6 +2,7 @@ APPNAME: $(APPNAME)
 
 .PHONEY: build 
 bld: 
+		mkdir -p build
 		cd cmd/ && go build -o ../build/$(APPNAME)
 
 build-linux: clean ## Prepare a build for a linux environment

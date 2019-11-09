@@ -7,25 +7,37 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
-const dbName string = ""
-const connString string = ""
+const server string = "0.0.0.0:5432"
+const connString string = "host=0.0.0.0 port=5432 user=smita dbname=scheduler password=pwd123"
 
 //NewEventRepo starts a new event repo
-func NewEventRepo() (*EventRepo, error) {
-	newDB, dbErr := gorm.Open(dbName, connString)
+func NewEventRepo() *EventRepo {
+	newDB, dbErr := gorm.Open(server, connString)
 	if dbErr != nil {
-		return nil, dbErr
+		//log
+		fmt.Println(dbErr.Error())
+		return nil
 	}
 
 	return &EventRepo{
 		db: newDB,
-	}, nil
+	}
 }
 
 //EventRepo construct for eventrepo
 type EventRepo struct {
 	//TODO: logger
 	db *gorm.DB
+}
+
+//GetAll get all events
+func (e *EventRepo) GetAll() ([]*model.Event, error) {
+	var events []*model.Event
+	db := e.db.Where(model.Event{}).Find(events)
+	if db.Error != nil {
+		return nil, db.Error
+	}
+	return events, nil
 }
 
 //Get get an event based on id
