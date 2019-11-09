@@ -1,8 +1,9 @@
-APPNAME: $(APPNAME)
+APPNAME= scheduler
 
 .PHONEY: build 
 bld: 
 		mkdir -p build
+		echo $(APPNAME)
 		cd cmd/ && go build -o ../build/$(APPNAME)
 
 build-linux: clean ## Prepare a build for a linux environment

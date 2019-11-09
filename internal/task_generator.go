@@ -52,6 +52,7 @@ func (eg *TaskGenerator) createCronTask(event *model.Event) error {
 	}
 
 	taskRepo := repo.NewTaskRepo()
+	
 	return nil
 }
 

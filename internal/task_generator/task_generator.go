@@ -53,7 +53,6 @@ func (t *TaskGenerator) createCronTask(event *model.Event) error {
 		return fmt.Errorf("event empty")
 	}
 
-	fmt.Println("task cron task created")
 	//generate task
 	taskRepo := repo.NewTaskRepo()
 	newTask, newTaskErr := taskRepo.Create(model.NewTask{event.Name, event.Type, event.ID})
