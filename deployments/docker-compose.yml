@@ -1,0 +1,13 @@
+version: "3"
+services:
+  db:
+    image: "postgres"
+    container_name: "scheduler-postgres"
+    environment:
+      - POSTGRES_USER=smita
+      - POSTGRES_PASSWORD=pwd123
+      - POSTGRES_DB=a
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/dat/lo0a

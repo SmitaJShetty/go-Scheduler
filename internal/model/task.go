@@ -7,15 +7,18 @@ import (
 	"github.com/pborman/uuid"
 )
 
+type TaskStatus string
+
 //Task construct fr tasks
 type Task struct {
 	gorm.Model
-	ID        string    `json:"id" gorm:"primary_key"`
-	Name      string    `json:"name"`
-	EventID   string    `json:"event_id"`
-	CreatedAt time.Time `json:"created_at"`
-	UpdatedAt time.Time `json:"updated_at"`
-	DeletedAt time.Time `json:"deleted_at"`
+	ID        string     `json:"id" gorm:"primary_key"`
+	Name      string     `json:"name"`
+	EventID   string     `json:"event_id"`
+	Status    TaskStatus `json:"status"`
+	CreatedAt time.Time  `json:"created_at"`
+	UpdatedAt time.Time  `json:"updated_at"`
+	DeletedAt time.Time  `json:"deleted_at"`
 }
 
 //TableName name of task

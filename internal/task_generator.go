@@ -2,7 +2,6 @@ package internal
 
 import (
 	"fmt"
-	"scheduler/go-Scheduler/internal/model"
 )
 
 //NewEventGenerator returns a Taskgenerator
@@ -52,6 +51,7 @@ func (eg *TaskGenerator) createCronTask(event *model.Event) error {
 	}
 
 	taskRepo := repo.NewTaskRepo()
+
 	return nil
 }
 

@@ -1,0 +1,40 @@
+Attaching to scheduler-postgres
+[36mscheduler-postgres |[0m 2019-11-07T04:26:35.655568300Z 2019-11-07 04:26:35.655 UTC [1] LOG:  starting PostgreSQL 12.0 (Debian 12.0-2.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+[36mscheduler-postgres |[0m 2019-11-07T04:26:35.655963000Z 2019-11-07 04:26:35.655 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[36mscheduler-postgres |[0m 2019-11-07T04:26:35.655987200Z 2019-11-07 04:26:35.655 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[36mscheduler-postgres |[0m 2019-11-07T04:26:35.659965700Z 2019-11-07 04:26:35.659 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[36mscheduler-postgres |[0m 2019-11-07T04:26:35.760621800Z 2019-11-07 04:26:35.760 UTC [22] LOG:  database system was interrupted; last known up at 2019-11-07 04:22:31 UTC
+[36mscheduler-postgres |[0m 2019-11-07T04:26:38.038147600Z 2019-11-07 04:26:38.037 UTC [22] LOG:  database system was not properly shut down; automatic recovery in progress
+[36mscheduler-postgres |[0m 2019-11-07T04:26:38.078418800Z 2019-11-07 04:26:38.078 UTC [22] LOG:  redo starts at 0/1646408
+[36mscheduler-postgres |[0m 2019-11-07T04:26:38.078598200Z 2019-11-07 04:26:38.078 UTC [22] LOG:  invalid record length at 0/1646440: wanted 24, got 0
+[36mscheduler-postgres |[0m 2019-11-07T04:26:38.078617000Z 2019-11-07 04:26:38.078 UTC [22] LOG:  redo done at 0/1646408
+[36mscheduler-postgres |[0m 2019-11-07T04:26:38.195548600Z 2019-11-07 04:26:38.192 UTC [1] LOG:  database system is ready to accept connections
+Attaching to scheduler-postgres
+[36mscheduler-postgres |[0m 2019-11-07T04:26:35.655568300Z 2019-11-07 04:26:35.655 UTC [1] LOG:  starting PostgreSQL 12.0 (Debian 12.0-2.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+[36mscheduler-postgres |[0m 2019-11-07T04:26:35.655963000Z 2019-11-07 04:26:35.655 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[36mscheduler-postgres |[0m 2019-11-07T04:26:35.655987200Z 2019-11-07 04:26:35.655 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[36mscheduler-postgres |[0m 2019-11-07T04:26:35.659965700Z 2019-11-07 04:26:35.659 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[36mscheduler-postgres |[0m 2019-11-07T04:26:35.760621800Z 2019-11-07 04:26:35.760 UTC [22] LOG:  database system was interrupted; last known up at 2019-11-07 04:22:31 UTC
+[36mscheduler-postgres |[0m 2019-11-07T04:26:38.038147600Z 2019-11-07 04:26:38.037 UTC [22] LOG:  database system was not properly shut down; automatic recovery in progress
+[36mscheduler-postgres |[0m 2019-11-07T04:26:38.078418800Z 2019-11-07 04:26:38.078 UTC [22] LOG:  redo starts at 0/1646408
+[36mscheduler-postgres |[0m 2019-11-07T04:26:38.078598200Z 2019-11-07 04:26:38.078 UTC [22] LOG:  invalid record length at 0/1646440: wanted 24, got 0
+[36mscheduler-postgres |[0m 2019-11-07T04:26:38.078617000Z 2019-11-07 04:26:38.078 UTC [22] LOG:  redo done at 0/1646408
+[36mscheduler-postgres |[0m 2019-11-07T04:26:38.195548600Z 2019-11-07 04:26:38.192 UTC [1] LOG:  database system is ready to accept connections
+Attaching to scheduler-postgres
+[36mscheduler-postgres |[0m 2019-11-07T04:26:35.655568300Z 2019-11-07 04:26:35.655 UTC [1] LOG:  starting PostgreSQL 12.0 (Debian 12.0-2.pgdg100+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 8.3.0-6) 8.3.0, 64-bit
+[36mscheduler-postgres |[0m 2019-11-07T04:26:35.655963000Z 2019-11-07 04:26:35.655 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+[36mscheduler-postgres |[0m 2019-11-07T04:26:35.655987200Z 2019-11-07 04:26:35.655 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+[36mscheduler-postgres |[0m 2019-11-07T04:26:35.659965700Z 2019-11-07 04:26:35.659 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+[36mscheduler-postgres |[0m 2019-11-07T04:26:35.760621800Z 2019-11-07 04:26:35.760 UTC [22] LOG:  database system was interrupted; last known up at 2019-11-07 04:22:31 UTC
+[36mscheduler-postgres |[0m 2019-11-07T04:26:38.038147600Z 2019-11-07 04:26:38.037 UTC [22] LOG:  database system was not properly shut down; automatic recovery in progress
+[36mscheduler-postgres |[0m 2019-11-07T04:26:38.078418800Z 2019-11-07 04:26:38.078 UTC [22] LOG:  redo starts at 0/1646408
+[36mscheduler-postgres |[0m 2019-11-07T04:26:38.078598200Z 2019-11-07 04:26:38.078 UTC [22] LOG:  invalid record length at 0/1646440: wanted 24, got 0
+[36mscheduler-postgres |[0m 2019-11-07T04:26:38.078617000Z 2019-11-07 04:26:38.078 UTC [22] LOG:  redo done at 0/1646408
+[36mscheduler-postgres |[0m 2019-11-07T04:26:38.195548600Z 2019-11-07 04:26:38.192 UTC [1] LOG:  database system is ready to accept connections
+[36mscheduler-postgres |[0m 2019-11-07T04:59:43.090050100Z 2019-11-07 04:59:43.089 UTC [44] FATAL:  role "scheduler" does not exist
+[36mscheduler-postgres |[0m 2019-11-07T05:00:02.043974300Z 2019-11-07 05:00:02.043 UTC [53] FATAL:  role "postgres" does not exist
+[36mscheduler-postgres |[0m 2019-11-07T05:00:57.243804000Z 2019-11-07 05:00:57.243 UTC [62] FATAL:  database "smita" does not exist
+[36mscheduler-postgres |[0m 2019-11-07T05:01:25.434064500Z 2019-11-07 05:01:25.433 UTC [71] FATAL:  database "schduler" does not exist
+[36mscheduler-postgres |[0m 2019-11-07T05:01:27.745269700Z 2019-11-07 05:01:27.745 UTC [80] FATAL:  database "sche" does not exist
+[36mscheduler-postgres |[0m 2019-11-09T07:10:48.308361500Z 2019-11-09 07:10:48.306 UTC [27] LOG:  stats_timestamp 2019-11-09 07:10:48.329582+00 is later than collector's time 2019-11-09 07:10:48.306091+00 for database 0
+[36mscheduler-postgres |[0m 2019-11-09T23:26:30.996857700Z 2019-11-09 23:26:30.995 UTC [27] LOG:  stats_timestamp 2019-11-09 23:26:31.014378+00 is later than collector's time 2019-11-09 23:26:30.995426+00 for database 0
