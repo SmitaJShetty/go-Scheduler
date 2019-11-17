@@ -2,9 +2,9 @@ package repo
 
 import (
 	"fmt"
-	"scheduler/go-Scheduler/internal/model"
 
 	"github.com/jinzhu/gorm"
+	"github.com/smitajshetty/go-scheduler/internal/model"
 )
 
 //TaskRepo construct for task
@@ -26,7 +26,7 @@ func (t *TaskRepo) Get(id string) (*model.Task, error) {
 	}
 
 	var t1 model.Task
-	db := t.db.Where(model.Task{ID: *id}).Find(&t1)
+	db := t.db.Where(model.Task{ID: id}).Find(&t1)
 	if db.Error != nil {
 		return nil, db.Error
 	}
@@ -62,7 +62,7 @@ func (t *TaskRepo) Delete(id string) error {
 	}
 
 	task := &model.Task{
-		ID: *id,
+		ID: id,
 	}
 
 	db := t.db.Delete(task)

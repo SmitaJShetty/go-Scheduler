@@ -2,6 +2,10 @@ package internal
 
 import (
 	"fmt"
+	"log"
+
+	"github.com/smitajshetty/go-scheduler/internal/model"
+	"github.com/smitajshetty/go-scheduler/internal/repo"
 )
 
 //NewEventGenerator returns a Taskgenerator
@@ -23,18 +27,18 @@ func (eg *TaskGenerator) CreateTasks(event *model.Event) error {
 
 	switch event.Type {
 	case model.CronJob:
-		cronJobErr := e.createCronTask(event)
+		cronJobErr := eg.createCronTask(event)
 		if cronJobErr != nil {
 			return cronJobErr
 		}
 	case model.Repetitive:
-		repetitiveJobErr := e.createRepetitiveTask(event)
+		repetitiveJobErr := eg.createRepetitiveTask(event)
 		if repetitiveJobErr != nil {
 			return repetitiveJobErr
 		}
 		break
 	case model.OneOff:
-		oneOffJobErr := e.createOneOffTask(event)
+		oneOffJobErr := eg.createOneOffTask(event)
 		if oneOffJobErr != nil {
 			return oneOffJobErr
 		}
@@ -50,7 +54,7 @@ func (eg *TaskGenerator) createCronTask(event *model.Event) error {
 		return fmt.Errorf("event empty")
 	}
 
-	taskRepo := repo.NewTaskRepo()
+	log.Println("error")
 
 	return nil
 }
@@ -88,11 +92,14 @@ func (eg *TaskGenerator) CreateAllTasks() {
 	//fetch all types of= tasks
 	eventRepo := repo.NewEventRepo()
 
-	var eventList []model.Event
-	eventList = eventRepo.GetAllEvents()
+	var eventList []*model.Event
+	eventList, eventErr := eventRepo.GetAll()
+	if eventErr != nil {
+		log.Printf("eventErr:", eventErr)
+	}
 
 	//run through create task function
 	for i, ev := range eventList {
-
+		log.Println("i:", i, "ev:", ev)
 	}
 }

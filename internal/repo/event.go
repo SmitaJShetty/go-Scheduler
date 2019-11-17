@@ -2,9 +2,9 @@ package repo
 
 import (
 	"fmt"
-	"scheduler/go-Scheduler/internal/model"
 
 	"github.com/jinzhu/gorm"
+	"github.com/smitajshetty/go-scheduler/internal/model"
 )
 
 const server string = "0.0.0.0:5432"

@@ -20,6 +20,9 @@ const (
 
 	//Stopped represents stopped status
 	Stopped Status = "stopped"
+
+	//Pending represents pending status
+	Pending Status = "pending"
 )
 
 //EventType type for event types -- cron job, one-off, repetitive
