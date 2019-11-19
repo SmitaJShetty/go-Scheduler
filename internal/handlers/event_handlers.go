@@ -3,20 +3,22 @@ package handlers
 import (
 	"encoding/json"
 	"net/http"
-	"scheduler/go-Scheduler/internal/model"
-	"scheduler/go-Scheduler/pkg/common"
+
+	"github.com/smitajshetty/go-scheduler/internal"
+	"github.com/smitajshetty/go-scheduler/internal/model"
+	"github.com/smitajshetty/go-scheduler/pkg/common"
 )
 
 // CreateEventHandler handler for events
 func CreateEventHandler(w http.ResponseWriter, r *http.Request) {
-	var eventRequest model.Event
+	var eventRequest model.EventRequest
 	err := json.NewDecoder(r.Body).Decode(&eventRequest)
 	if err != nil {
 		common.SendErrorResponse(w, r, common.NewAppError(err.Error(), http.StatusBadRequest))
 		return
 	}
 
-	createEventErr := service.NewEventService().CreateEvent(&eventRequest)
+	createEventErr := internal.NewEventService().CreateEvent(&eventRequest)
 	if createEventErr != nil {
 		common.SendErrorResponse(w, r, common.NewAppError(createEventErr.Error(), http.StatusInternalServerError))
 		return

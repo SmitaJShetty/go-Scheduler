@@ -1,6 +1,11 @@
 package internal
 
-import "scheduler/go-Scheduler/internal/model"
+import (
+	"fmt"
+
+	"github.com/smitajshetty/go-scheduler/internal/model"
+	"github.com/smitajshetty/go-scheduler/internal/repo"
+)
 
 type EventService struct {
 }
@@ -15,10 +20,16 @@ func (es *EventService) CreateEvent(eventReq *model.EventRequest) error {
 	//create event
 	event := model.NewEvent(eventReq)
 	eventRepo := repo.NewEventRepo()
-	createEventErr := eventRepo.CreateEvent(event)
+	if eventRepo == nil {
+		return fmt.Errorf("invalid repo:%v", eventRepo)
+	}
+	newEvent, createEventErr := eventRepo.Create(event)
 	if createEventErr != nil {
 		return createEventErr
 	}
 
+	if newEvent == nil {
+		return fmt.Errorf("no event was created")
+	}
 	return nil
 }

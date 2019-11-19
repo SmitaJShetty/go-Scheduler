@@ -19,5 +19,8 @@ redis-start:
 	docker pull redis
 	docker run --name redis-test-instance -p 6379:6379 -d redis
 
+db-migrate:
+	migrate -source file://internal/db/migrations -database postgres://0.0.0.0:5432/postgres?sslmode=disable up 2
+
 run: bld
 	build/$(APPNAME)

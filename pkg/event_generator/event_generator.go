@@ -1,6 +1,10 @@
 package event_generator
 
-import "scheduler/go-Scheduler/src/scheduler-be/model"
+import (
+	"fmt"
+
+	"github.com/smitajshetty/go-scheduler/internal/model"
+)
 
 //EventGenerator construct for  event generator
 type EventGenerator struct {
@@ -12,7 +16,5 @@ func (e *EventGenerator) GenerateEvents(event *model.Event) error {
 	if event == nil {
 		return fmt.Errorf("event was empty")
 	}
-
-	eventRepo:= NewEventRepo()
-	eventRepo.
+	return nil
 }

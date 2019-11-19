@@ -20,6 +20,9 @@ const (
 
 	//Stopped represents stopped status
 	Stopped Status = "stopped"
+
+	//Pending represents pending status
+	Pending Status = "pending"
 )
 
 //EventType type for event types -- cron job, one-off, repetitive
@@ -37,14 +40,14 @@ const (
 //Event construct event
 type Event struct {
 	gorm.Model
-	ID        string    `json:"id" gorm:"primary_key"`
-	Name      string    `json:"name"`
-	Type      EventType `json:"type"`
-	Status    Status    `json:"status"`
-	Details   []byte    `json:"details"`
-	CreatedAt time.Time `json:"created_at"`
-	UpdatedAt time.Time `json:"updated_at"`
-	DeletedAt time.Time `json:"deleted_at"`
+	ID        string       `json:"id" gorm:"primary_key"`
+	Name      string       `json:"name"`
+	Type      EventType    `json:"type"`
+	Status    Status       `json:"status"`
+	Details   EventDetails `json:"details"`
+	CreatedAt time.Time    `json:"created_at"`
+	UpdatedAt time.Time    `json:"updated_at"`
+	DeletedAt time.Time    `json:"deleted_at"`
 }
 
 //TableName table name
