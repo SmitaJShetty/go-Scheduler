@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	//setUpDB()
+	setUpDB()
 
 	listenAddress := "localhost:8090"
 	router.Start(listenAddress)

@@ -7,8 +7,8 @@ import (
 	"github.com/smitajshetty/go-scheduler/internal/model"
 )
 
-const server string = "0.0.0.0:5432"
-const connString string = "host=0.0.0.0 port=5432 user=smita dbname=scheduler password=pwd123"
+const server string = "postgres"
+const connString string = "host=0.0.0.0 port=5432 user=smita dbname=scheduler password=pwd123 sslmode=disable"
 
 //NewEventRepo starts a new event repo
 func NewEventRepo() *EventRepo {
@@ -19,6 +19,7 @@ func NewEventRepo() *EventRepo {
 		return nil
 	}
 
+	fmt.Println("new db:", newDB)
 	return &EventRepo{
 		db: newDB,
 	}

@@ -20,6 +20,9 @@ func (es *EventService) CreateEvent(eventReq *model.EventRequest) error {
 	//create event
 	event := model.NewEvent(eventReq)
 	eventRepo := repo.NewEventRepo()
+	if eventRepo == nil {
+		return fmt.Errorf("invalid repo:%v", eventRepo)
+	}
 	newEvent, createEventErr := eventRepo.Create(event)
 	if createEventErr != nil {
 		return createEventErr
