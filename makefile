@@ -20,7 +20,14 @@ redis-start:
 	docker run --name redis-test-instance -p 6379:6379 -d redis
 
 db-migrate:
-	migrate -source file://internal/db/migrations -database postgres://0.0.0.0:5432/postgres?sslmode=disable up 2
+	migrate -path ./internal/db/migrations -database postgres://smita:scheduler@0.0.0.0:5432/scheduler?sslmode=disable up
 
 run: bld
 	build/$(APPNAME)
+
+compose-upd:
+	cd ./deployments && docker-compose up -d
+
+
+compose-down:
+	cd ./deployments && docker-compose down

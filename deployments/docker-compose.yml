@@ -4,9 +4,9 @@ services:
     image: "postgres"
     container_name: "scheduler-postgres"
     environment:
-      - POSTGRES_USER=smita
-      - POSTGRES_PASSWORD=pwd123
-      - POSTGRES_DB=a
+      POSTGRES_DB: scheduler
+      POSTGRES_USER: smita
+      POSTGRES_PASSWORD: pwd123      
     ports:
       - "5432:5432"
     volumes:
